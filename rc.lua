@@ -86,7 +86,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-   names = {"Telegram", "Firefox", "Emacs", "Spotify","◊","◊","◊","◊","◊"}
+   names = {"Telegram", "Firefox", "Emacs", "Spotify","Discord","◊","◊","◊","◊"}
 }
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
