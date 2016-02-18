@@ -84,7 +84,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = {"Telegram", "Firefox", "Emacs", "Spotify","Discord","◊","◊","◊","◊"},
+   names = {"Web", "Telegram", "Emacs", "Spotify","Discord","◊","◊","◊","◊"},
    layout = { layouts[1], layouts[2], layouts[3], layouts[1], layouts[4] }
 }
 
@@ -144,7 +144,7 @@ mailwidget = lain.widgets.imap({
         end
     end
 })
-]]
+]]--
 
 -- MPD
 mpdicon = wibox.widget.imagebox(beautiful.widget_music)
@@ -392,9 +392,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
     
     -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
-
+    --awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
+    --awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
+    
     -- dmenu-extended (AUR) see comments on https://aur.archlinux.org/packages/dmenu-extended/
     awful.key({ modkey }, "p", function () awful.util.spawn("dmenu_extended_run") end),
     
@@ -663,7 +663,7 @@ awful.rules.rules = {
     
     { rule = { instance = "plugin-container" },
           properties = { tag = tags[1][1] } },
-    
+   
 	  { rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
 	  
@@ -673,9 +673,9 @@ awful.rules.rules = {
     
     -- Set programs of startup on their tags
     { rule = { class = "Telegram" },
-      properties = { tag = tags[1][1] } },
-    { rule = { class = "Firefox" },
       properties = { tag = tags[1][2] } },
+    { rule = { class = "Firefox" },
+      properties = { tag = tags[1][1] } },
     { rule = { class = "Emacs" },
       properties = { tag = tags[1][3] } },
     { rule = { class = "Spotify" },
@@ -774,7 +774,7 @@ end
 -- }}}
 
 ----------------------- MY STUFF ----------------------------------------------
-
+   
 -- Ejecuta algo en el shell una vez
 function run_once(cmd)
    findme = cmd
@@ -809,3 +809,4 @@ do
       awful.util.spawn(i)
    end
 end
+   
