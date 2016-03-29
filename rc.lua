@@ -89,7 +89,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = {"Telegram","Web","Emacs", "Spotify","Discord","◊","◊","◊","◊"},
+   names = {"1-Telegram","2-Web","3-Emacs", "4-Spotify","5-Discord","6-◊","7-◊","8-◊","9-◊"},
    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
@@ -423,6 +423,12 @@ globalkeys = awful.util.table.join(
    -- Screenshot
    awful.key({          "Control"}, "F12", function() awful.util.spawn("capscr",false) end), -- "capscr" es un script definido en /bin/capscr
    awful.key({ "Shift", "Control"}, "F12", function() awful.util.spawn_with_shell("sleep 0.5 && scrot -s /home/ironjanowar/Pictures/screenshots/$(date '+%Y-%m-%d-%H:%M:%S').jpg") end),
+
+   -- Spotify control
+   awful.key({ modkey,  "Control"}, "Up", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play") end),
+   awful.key({ modkey,  "Control"}, "Down", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
+   awful.key({ modkey,  "Control"}, "Right", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") end),
+   awful.key({ modkey,  "Control"}, "Left", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") end),
    
    -- Brightness // light-git needed
    awful.key({                   }, "XF86MonBrightnessDown", function () awful.util.spawn("light -U 10") end),
