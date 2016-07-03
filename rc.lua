@@ -89,8 +89,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = {"1-Telegram","2-Web","3-Emacs", "4-Spotify","5-Discord","6-◊","7-◊","8-◊","9-◊"},
-   layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+   names = {"1-Telegram","2-Web","3-Emacs", "4-Terminal","5-Spotify","6-Discord","7-◊","8-◊","9-◊"},
+   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2] }
 }
 
 for s = 1, screen.count() do
@@ -674,15 +674,12 @@ awful.rules.rules = {
    { rule = { instance = "plugin-container" },
      properties = { tag = tags[1][1] } },
    
-   { rule = { class = "Gimp" },
-     properties = { tag = tags[1][4] } },
-   
    { rule = { class = "Gimp", role = "gimp-image-window" },
      properties = { maximized_horizontal = true,
                     maximized_vertical = true } },
    
    -- Set programs of startup on their tags
-   { rule = { class = "Telegram" },
+   { rule = { class = "telegram" },
      properties = { tag = tags[1][1] } },
    { rule = { class = "Firefox" },
      properties = { tag = tags[1][2] } },
@@ -819,3 +816,6 @@ do
       awful.util.spawn(i)
    end
 end
+
+-- NetworkManager
+run_once("nm-applet")
